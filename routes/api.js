@@ -8,7 +8,12 @@ router.get('/ninjas',function(req,res){
 
 //add new ninja to db
 router.post('/ninjas',function(req,res){
-    res.send({type:'POST'});
+    console.log(req.body);
+    res.send({
+    type:'POST',
+    name:req.body.name,
+    rank:req.body.rank
+    });
 });
 
 //update ninja in db
@@ -20,3 +25,5 @@ router.put('/ninjas/:id',function(req,res){
 router.delete('/ninjas/:id',function(req,res){
     res.send({type:'DELETE'});
 });
+
+module.exports=router;
